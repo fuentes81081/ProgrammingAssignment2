@@ -15,10 +15,7 @@ makeCacheMatrix <- function(theMatrix = matrix()) {
     }
 
     getInverse <- function() {
-        if(identical(theMatrix, cachedMatrix)) {
-            cachedInverse
-        }
-        else {
+        if(!identical(theMatrix, cachedMatrix)) {
             cachedInverse <<- NULL
             cachedMatrix  <<- theMatrix
         }
@@ -59,3 +56,9 @@ cacheSolve <- function(x, ...) {
 createMatrix <- function(x = 2) {
     output <- matrix(runif(x*x), ncol=x)
 }
+
+
+
+
+## myMatrix <- createMatrix()
+## cacheSolve(makeCacheMatrix(myMatrix))
